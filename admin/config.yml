@@ -1,0 +1,104 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+
+      # ─────────────────────────────────────────
+      # AMARAN HALO PAGE
+      # ─────────────────────────────────────────
+      - name: "amaran-halo"
+        label: "amaran Halo"
+        file: "amaran-halo.html"
+        fields:
+
+          # ── HERO ──────────────────────────────
+          - label: "Hero — Eyebrow Tag"
+            name: "hero_eyebrow"
+            widget: "string"
+            hint: "Small pill text above the title e.g. 'Now available in South Africa'"
+            default: "Now available in South Africa"
+
+          - label: "Hero — Main Title"
+            name: "hero_title"
+            widget: "string"
+            hint: "The large title in the hero section e.g. 'amaran Halo'"
+            default: "amaran Halo"
+
+          - label: "Hero — Tagline"
+            name: "hero_tagline"
+            widget: "string"
+            hint: "Subtitle below the title e.g. 'Ignite Your Creativity'"
+            default: "Ignite Your Creativity"
+
+          # ── STATS STRIP ───────────────────────
+          - label: "Stats Strip"
+            name: "stats"
+            widget: "list"
+            summary: "{{fields.number}} — {{fields.label}}"
+            hint: "The 4 stat boxes below the hero. Keep to 4 items."
+            fields:
+              - { label: "Number / Value", name: "number", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+
+          # ── FEATURE SECTIONS ──────────────────
+          - label: "Feature Sections"
+            name: "features"
+            widget: "list"
+            summary: "{{fields.heading}}"
+            hint: "The alternating image + text sections. Keep to 4."
+            fields:
+              - { label: "Section Label (small blue text)", name: "label", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Body Text", name: "body", widget: "text" }
+
+          # ── PRODUCT LINEUP ────────────────────
+          - label: "Product Lineup"
+            name: "products"
+            widget: "list"
+            summary: "{{fields.name}}"
+            hint: "The 5 product cards in the 'Meet the Family' section."
+            fields:
+              - { label: "Product Name", name: "name", widget: "string", hint: "e.g. Halo 60x" }
+              - { label: "Wattage", name: "watt", widget: "string", hint: "e.g. 56W" }
+              - { label: "Lux Output", name: "lux", widget: "string", hint: "e.g. 3,270 lux @ 1m" }
+              - { label: "Power Type Badge", name: "power", widget: "string", hint: "e.g. USB-C PD or Single AC" }
+
+          # ── WHERE TO BUY ──────────────────────
+          - label: "Buy Section — Title"
+            name: "buy_title"
+            widget: "string"
+            default: "Shop Amaran Halo in South Africa"
+
+          - label: "Buy Section — Subtitle"
+            name: "buy_sub"
+            widget: "string"
+            default: "Available now at these authorised local stores — shop online or visit in-store."
+
+          - label: "Retailers"
+            name: "retailers"
+            widget: "list"
+            summary: "{{fields.name}}"
+            hint: "The retailer cards. Add or remove stores here."
+            fields:
+              - { label: "Store Name", name: "name", widget: "string" }
+              - { label: "Website URL", name: "url", widget: "string", hint: "Full URL e.g. https://www.outdoorphoto.co.za/" }
+              - { label: "Display URL", name: "display_url", widget: "string", hint: "Short URL shown on card e.g. outdoorphoto.co.za" }
+              - { label: "Button Label", name: "button", widget: "string", default: "Shop Now" }
+
+          # ── FOOTER ────────────────────────────
+          - label: "Footer — Distributor Text"
+            name: "footer_distributor"
+            widget: "string"
+            default: "Official distributor — Prosales Broadcast"
+
+          - label: "Footer — Copyright"
+            name: "footer_copy"
+            widget: "string"
+            default: "© 2026 Prosales Broadcast. amaran is a trademark of Aputure."
